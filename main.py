@@ -5,7 +5,7 @@ import json
 import requests
 
 # Press the green button in the gutter to run the script.
-userAPI="3ARG82L2SZI0YU7T"
+userAPI="codigo"
 def crearCanal():
     metodo = 'POST'
     uri = "https://api.thingspeak.com/channels.json"
@@ -28,7 +28,7 @@ def crearCanal():
     return contenido
 
 
-def deleteChannel(id):
+def borrarCanal(id):
     metodo = 'DELETE'
     uri = 'https://api.thingspeak.com/channels/'+str(id)+'.json'
     cabeceras = {'Host': 'api.thingspeak.com',
@@ -65,6 +65,9 @@ def actualizarDatos(cpu,ram,apiKey):
 
 
 if __name__ == '__main__':
+    if userAPI == "codigo":
+        print("Es necesario un codigo API que obtendras en tu perfil de ThingSpeak")
+        exit()
     contenido=crearCanal()
     writeApiKey=contenido['api_keys'][0]['api_key']
     id=contenido['id']
@@ -75,6 +78,7 @@ if __name__ == '__main__':
 
 
     while(True):
+
         try:
             cpu=psutil.cpu_percent(1)
             ram=psutil.virtual_memory().percent
@@ -84,7 +88,7 @@ if __name__ == '__main__':
         except KeyboardInterrupt: #recoge el CRL+C
 
             print('Cerrando...')
-            deleteChannel(id)
+            borrarCanal(id)
             exit()
 
 
