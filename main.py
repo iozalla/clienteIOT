@@ -7,7 +7,7 @@ import urllib
 import json
 import requests
 
-userAPI="3ARG82L2SZI0YU7T"
+userAPI="editar"
 
 
 def crearCanal():#crea un canal
@@ -76,7 +76,7 @@ def getCanal(): #recoge los canales que estan creados
 
 if __name__ == '__main__':
 
-    if userAPI == "codigo":
+    if userAPI == "editar":
         print("Es necesario un codigo API que obtendras en tu perfil de ThingSpeak")
         exit
     canalDisponible=getCanal()
