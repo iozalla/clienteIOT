@@ -120,7 +120,7 @@ if __name__ == '__main__':
 #Content-Type: application/x-www-form-urlencoded
 #Content-Length: 118
 
-#api_key=3ARG82L2SZI0YU7T&description=&field1=&field2=&latitude=&longitude=&name=channel&public_flag=false&tags=&url=
+#api_key=???&description=&field1=&field2=&latitude=&longitude=&name=channel&public_flag=false&tags=&url=
 
 
 #Update canal
@@ -129,4 +129,4 @@ if __name__ == '__main__':
 #Content-Type: application/x-www-form-urlencoded
 #Content-Length: 43
 
-#api_key=X1TCB1GEG809CCW5&field1=1&field2=12
+#api_key=???&field1=1&field2=12
