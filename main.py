@@ -1,5 +1,5 @@
 #Iñigo Ozalla Ontoria Grupo 2
-
+import sys
 
 import psutil
 import time
@@ -66,7 +66,7 @@ def getCanal(): #recoge los canales que estan creados
         print(contenido)
         for canal in contenido:#si encuentra un canal con el nombre Lab1 devuelve su clave de escritura para poder actualizarlo
             #print(canal)
-            if canal['name']=="Lab1":
+            if canal['name']==sys.argv[1]:
                 return canal
         return -1;#si  no encuentra ningun canal con ese nombre devuelve -1
 
@@ -90,7 +90,7 @@ if __name__ == '__main__':
     else:#si hay un canal disponible se usa su api key
         id=canalDisponible['id']
         print("ya hay un canal disponible (Usamos ese)")
-        writeApiKey=canalDisponible["api_keys"][0]
+        writeApiKey=canalDisponible["api_keys"][0]['api_key']
 
     urlCanal="https://thingspeak.com/channels/"+str(id)+"/private_show"
     print("| URL del canal creado:" , urlCanal,"  |")
