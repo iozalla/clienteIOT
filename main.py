@@ -7,7 +7,7 @@ import urllib
 import json
 import requests
 
-userAPI="editar"
+userAPI="3ARG82L2SZI0YU7T"
 
 
 def crearCanal():#crea un canal
@@ -22,6 +22,9 @@ def crearCanal():#crea un canal
     contenido_encoded = '&'+urllib.parse.urlencode(contenido)#AQUI HABIA QUE AÑADIR UNA & AL PRINCIPIO PARA QUE LA PETICION FUERA CORRECTA
     cabeceras['Content-Length'] = str(len(contenido_encoded))
     respuesta = requests.request(metodo, uri, data=contenido_encoded, headers=cabeceras, allow_redirects=False)
+    if respuesta.status_code==402:
+        print("Hay demasiados canales, borra uno y vuelve a intentarlo o usa uno ya creado")
+        sys.exit()
     contenido = json.loads(respuesta.content)#devuelvo la informacion del canal para poder usar la api del canal al editar y vaciar el canal
     print(contenido)
     return contenido
